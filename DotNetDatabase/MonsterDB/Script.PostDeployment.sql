@@ -10,15 +10,4 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 
-alter table Monster.Monster
-  add constraint pk_monster_monsterid primary key clustered (MonsterId);
-go
 
-
-alter table Monster.Monster
-  add constraint fk_monster_genderid foreign key (GenderId) references Monster.Gender (GenderId);
-go
-
-alter table Monster.Monster
-  add constraint fk_monster_titleid foreign key (TypeId) references Monster.MonsterType (MonsterTypeId);
-go
