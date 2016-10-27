@@ -1,0 +1,5 @@
+C:\Users\User\Desktop\Revature\Repos\RevatureTraining-master\MonsterApp\MonsterApp.DataAccess\bin\Debug\MonsterApp.DataAccess.dll
+C:\Users\User\Desktop\Revature\Repos\RevatureTraining-master\MonsterApp\MonsterApp.DataAccess\bin\Debug\MonsterApp.DataAccess.pdb
+C:\Users\User\Desktop\Revature\Repos\RevatureTraining-master\MonsterApp\MonsterApp.DataAccess\obj\Debug\MonsterApp.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\Revature\Repos\RevatureTraining-master\MonsterApp\MonsterApp.DataAccess\obj\Debug\MonsterApp.DataAccess.dll
+C:\Users\User\Desktop\Revature\Repos\RevatureTraining-master\MonsterApp\MonsterApp.DataAccess\obj\Debug\MonsterApp.DataAccess.pdb
