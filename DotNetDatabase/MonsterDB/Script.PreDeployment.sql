@@ -26,46 +26,9 @@ if (DB_ID(N'MonsterDB') is not null)
   use MonsterDB;
 go
 
---if(object_id('MonsterDb') = 1)
---begin
-create schema Monster;
---end;
+
+if (SCHEMA_ID(N'Monster') is not null)
+begin
+   drop schema Monster;
+end;
 go
-
-create table Monster.Monster
-(
-  MonsterId int not null identity(1,1) primary key
-  ,Gender int null
-  ,TitleId int null --foreign key references Monster.Title (TitleId)
-  ,TypeId int not null
-  ,Name nvarchar(250) not null
-  ,PicturePath nvarchar(256) null
-  ,Active bit not null
-);
-go
-
-create table Monster.MonsterType
-(
-  MonsterTypeId int not null identity(1,1) primary key
-  ,TypeName nvarchar(250) not null
-  ,Active bit not null
-);
-go
-
-create table Monster.Gender
-(
-  GenderId int not null identity(1,1) primary key
-  ,GenderName nvarchar(250) not null
-  ,Active bit not null
-);
-go
-
-create table Monster.Title
-(
-  TitleId int not null identity(1,1) primary key
-  ,TitleName nvarchar(250) not null
-  ,Active bit not null
-);
-go
-
-
