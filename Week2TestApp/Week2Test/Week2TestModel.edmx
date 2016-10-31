@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Week2TestDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Spreadsheets" Type="int" />
+          <Property Name="WorkOrders" Type="int" />
+          <Property Name="Presentations" Type="int" />
+          <Property Name="Completed" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <Function Name="AddProject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Week2">
+          <Parameter Name="Spreadsheets" Type="int" Mode="In" />
+          <Parameter Name="WorkOrders" Type="int" Mode="In" />
+          <Parameter Name="Presentations" Type="int" Mode="In" />
+          <Parameter Name="Completed" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="DeleteProject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Week2">
+          <Parameter Name="ProjectId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Week2" />
+        <Function Name="GetCompletedIncompleted" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Week2">
+          <Parameter Name="Completed" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="MarkCompleteIncomplete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Week2">
+          <Parameter Name="Completed" Type="bit" Mode="In" />
+          <Parameter Name="ProjectId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateProject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Week2">
+          <Parameter Name="Spreadsheets" Type="int" Mode="In" />
+          <Parameter Name="WorkOrders" Type="int" Mode="In" />
+          <Parameter Name="Presentations" Type="int" Mode="In" />
+          <Parameter Name="Completed" Type="bit" Mode="In" />
+          <Parameter Name="Active" Type="bit" Mode="In" />
+          <Parameter Name="ProjectId" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="Week2TestDBModelStoreContainer">
+          <EntitySet Name="Projects" EntityType="Self.Projects" Schema="Week2" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Week2TestDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Spreadsheets" Type="Int32" />
+          <Property Name="WorkOrders" Type="Int32" />
+          <Property Name="Presentations" Type="Int32" />
+          <Property Name="Completed" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Week2TestDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <FunctionImport Name="AddProject">
+            <Parameter Name="Spreadsheets" Mode="In" Type="Int32" />
+            <Parameter Name="WorkOrders" Mode="In" Type="Int32" />
+            <Parameter Name="Presentations" Mode="In" Type="Int32" />
+            <Parameter Name="Completed" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteProject">
+            <Parameter Name="ProjectId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetAll" ReturnType="Collection(Week2TestDBModel.GetAll_Result)" />
+          <FunctionImport Name="GetCompletedIncompleted" ReturnType="Collection(Week2TestDBModel.GetCompletedIncompleted_Result)">
+            <Parameter Name="Completed" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="MarkCompleteIncomplete">
+            <Parameter Name="Completed" Mode="In" Type="Boolean" />
+            <Parameter Name="ProjectId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateProject">
+            <Parameter Name="Spreadsheets" Mode="In" Type="Int32" />
+            <Parameter Name="WorkOrders" Mode="In" Type="Int32" />
+            <Parameter Name="Presentations" Mode="In" Type="Int32" />
+            <Parameter Name="Completed" Mode="In" Type="Boolean" />
+            <Parameter Name="Active" Mode="In" Type="Boolean" />
+            <Parameter Name="ProjectId" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetAll_Result">
+          <Property Type="Int32" Name="ProjectId" Nullable="false" />
+          <Property Type="Int32" Name="Spreadsheets" Nullable="true" />
+          <Property Type="Int32" Name="WorkOrders" Nullable="true" />
+          <Property Type="Int32" Name="Presentations" Nullable="true" />
+          <Property Type="Boolean" Name="Completed" Nullable="false" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetCompletedIncompleted_Result">
+          <Property Type="Int32" Name="ProjectId" Nullable="false" />
+          <Property Type="Int32" Name="Spreadsheets" Nullable="true" />
+          <Property Type="Int32" Name="WorkOrders" Nullable="true" />
+          <Property Type="Int32" Name="Presentations" Nullable="true" />
+          <Property Type="Boolean" Name="Completed" Nullable="false" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Week2TestDBModelStoreContainer" CdmEntityContainer="Week2TestDBEntities">
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="Week2TestDBModel.Project">
+              <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Spreadsheets" ColumnName="Spreadsheets" />
+                <ScalarProperty Name="WorkOrders" ColumnName="WorkOrders" />
+                <ScalarProperty Name="Presentations" ColumnName="Presentations" />
+                <ScalarProperty Name="Completed" ColumnName="Completed" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AddProject" FunctionName="Week2TestDBModel.Store.AddProject" />
+          <FunctionImportMapping FunctionImportName="DeleteProject" FunctionName="Week2TestDBModel.Store.DeleteProject" />
+          <FunctionImportMapping FunctionImportName="GetAll" FunctionName="Week2TestDBModel.Store.GetAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Week2TestDBModel.GetAll_Result">
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Spreadsheets" ColumnName="Spreadsheets" />
+                <ScalarProperty Name="WorkOrders" ColumnName="WorkOrders" />
+                <ScalarProperty Name="Presentations" ColumnName="Presentations" />
+                <ScalarProperty Name="Completed" ColumnName="Completed" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetCompletedIncompleted" FunctionName="Week2TestDBModel.Store.GetCompletedIncompleted">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Week2TestDBModel.GetCompletedIncompleted_Result">
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Spreadsheets" ColumnName="Spreadsheets" />
+                <ScalarProperty Name="WorkOrders" ColumnName="WorkOrders" />
+                <ScalarProperty Name="Presentations" ColumnName="Presentations" />
+                <ScalarProperty Name="Completed" ColumnName="Completed" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="MarkCompleteIncomplete" FunctionName="Week2TestDBModel.Store.MarkCompleteIncomplete" />
+          <FunctionImportMapping FunctionImportName="UpdateProject" FunctionName="Week2TestDBModel.Store.UpdateProject" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
