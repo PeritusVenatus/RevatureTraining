@@ -1,0 +1,20 @@
+﻿body 
+{
+   font-family: Cambria, Georgia, "Times New Roman"; margin: 0;
+}
+
+div#header 
+{
+   background-color: #444; border-bottom: 2px solid #111; color: white;
+}
+
+div#header div.title
+{
+   font-size: 2em; padding: .6em;
+}
+
+div#content
+{
+   border-left: 2px solid gray; margin-left: 9em; padding: 1em;
+}
+
