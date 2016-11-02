@@ -54,7 +54,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="Properties\DataSources\MonsterApp.DataClient.Models.GenderDAO.datasource" />
     <None Include="Properties\DataSources\MonsterApp.DataClient.Models.MonsterTypeDAO.datasource" />
     <None Include="Properties\DataSources\MonsterApp.DataClient.Models.TitleDAO.datasource" />

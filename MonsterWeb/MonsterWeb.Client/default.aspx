@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    <asp:ListBox runat="server" ID="genderlist" ClientIDMode="Static"></asp:ListBox>
+    <asp:ListBox runat="server" ID="GenderList" ClientIDMode="Static"></asp:ListBox>
     </div>
     </form>
 </body>

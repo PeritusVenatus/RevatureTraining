@@ -15,5 +15,16 @@ namespace MonsterWeb.Logic
     {
       return msc.GetGenders().ToList();
     }
+
+      public bool InsertMonster(string name, string gender)
+      {
+         var gen = msc.GetGenders().FirstOrDefault(g => g.Name == gender);
+
+         var mon = new { Name = name, Gender = gender };
+
+         //return msc.InsertMonster(mon);
+
+         return true;
+      }
   }
 }

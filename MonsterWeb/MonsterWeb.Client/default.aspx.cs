@@ -8,22 +8,23 @@ using System.Web.UI.WebControls;
 
 namespace MonsterWeb.Client
 {
-  public partial class _default : System.Web.UI.Page
-  {
-    protected void Page_Load(object sender, EventArgs e)
-    {
-      GetGenders();
-    }
-
-    private void GetGenders()
-    {
-      var data = new DataService();
-      genderlist.Items.Clear();
-
-      foreach (var item in data.GetGenders())
+   public partial class _default : System.Web.UI.Page
+   {
+      protected void Page_Load(object sender, EventArgs e)
       {
-        genderlist.Items.Add(item.Name);
+         GetGenders();
       }
-    }
-  }
+
+      private void GetGenders()
+      {
+         var data = new DataService();
+         GenderList.Items.Clear();
+
+         foreach (var item in data.GetGenders())
+         {
+            GenderList.Items.Add(item.name);
+         }
+
+      }
+   }
 }
