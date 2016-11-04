@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b10de5deb3414e7d80e0752dca068e4c" Name="Diagram1">
+        <EntityTypeShape EntityType="RegistrationDBModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegistrationDBModel.Cours" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegistrationDBModel.Professor" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegistrationDBModel.Schedule" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegistrationDBModel.Student" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="RegistrationDBModel.fk_Course1Id_Scheduleid" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistrationDBModel.fk_Course2Id_Scheduleid" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistrationDBModel.fk_Course3Id_Scheduleid" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistrationDBModel.fk_Course4Id_Scheduleid" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistrationDBModel.fk_Course5Id_Scheduleid" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistrationDBModel.fk_Course6Id_Scheduleid" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistrationDBModel.fk_Course7Id_Scheduleid" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistrationDBModel.fk_Professors_Scheduleid" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistrationDBModel.fk_Schedule_Professorid" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistrationDBModel.fk_Schedule_Studentid" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistrationDBModel.fk_students_Scheduleid" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

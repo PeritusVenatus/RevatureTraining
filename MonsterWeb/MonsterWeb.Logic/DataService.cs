@@ -1,4 +1,5 @@
-﻿using MonsterWeb.Logic.MonsterServiceReference;
+﻿using MonsterWeb.Logic.Models;
+using MonsterWeb.Logic.MonsterServiceReference;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,21 +11,27 @@ namespace MonsterWeb.Logic
   public class DataService
   {
     private MonsterServiceClient msc = new MonsterServiceClient();
+      private FactoryThing<GenderDTO> genderFactory = new FactoryThing<GenderDTO>();
 
-    public List<GenderDAO> GetGenders()
+    public List<GenderDTO> GetGenders()
     {
-      return msc.GetGenders().ToList();
+         var genders = new List<GenderDTO>();
+
+         foreach (var item in msc.GetGenders())
+         {
+            var g = genderFactory.Create();
+         }
+
+         return genders;
     }
 
-      public bool InsertMonster(string name, string gender)
+      public bool InsertMonster(GenderDTO)
       {
-         var gen = msc.GetGenders().FirstOrDefault(g => g.Name == gender);
+         var gen = msc.GetGenders().FirstOrDefault(g => g.Id == gender.AppId);
 
-         var mon = new { Name = name, Gender = gender };
+         var mon = new MonsterDAO() { Name = gender.Name, Gender = gender, Type = new MonsterTypeDAO() };
 
-         //return msc.InsertMonster(mon);
-
-         return true;
+         return msc.InsertMonster(mon);
       }
   }
 }

@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8501AA62-776E-4425-8B9F-65C23E401418}</ProjectGuid>
+    <ProjectGuid>{F38A68AB-3560-4319-B8F1-3D3E100E7436}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MonsterApp.Tests</RootNamespace>
-    <AssemblyName>MonsterApp.Tests</AssemblyName>
+    <RootNamespace>SchoolRegistrationTests</RootNamespace>
+    <AssemblyName>SchoolRegistrationTests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -33,17 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -69,23 +59,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdoDataInsertTests.cs" />
-    <Compile Include="AdoDataMSTests.cs" />
-    <Compile Include="AdoDataTests.cs" />
-    <Compile Include="EfDataTests.cs" />
+    <Compile Include="EFDataTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MonsterApp.DataAccess\MonsterApp.DataAccess.csproj">
-      <Project>{28E46C6A-6F07-486C-A12F-ACC3DCC60D92}</Project>
-      <Name>MonsterApp.DataAccess</Name>
+    <ProjectReference Include="..\SchoolRegistrationApp\SchoolRegistrationApp.csproj">
+      <Project>{ee957896-90bf-4622-aeb5-925c415c69e2}</Project>
+      <Name>SchoolRegistrationApp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

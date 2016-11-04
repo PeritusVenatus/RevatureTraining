@@ -1,15 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EntryForm.aspx.cs" Inherits="MonsterWeb.Client.EntryForm" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="EntryForm.aspx.cs" Inherits="MonsterWeb.Client.EntryForm" %>
 
-<!DOCTYPE html>
+<%@ Register Src="~/Login.ascx" TagPrefix="uc" TagName="Login" %>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    <asp:Label runat="server" ID="MonsterName"></asp:Label>
+<asp:Content runat="server" ContentPlaceHolderID="body">
+       <asp:Label runat="server" ID="MonsterName"></asp:Label>
 
        <asp:TextBox runat="server" ID="MonsterName_Text"></asp:TextBox>
 
@@ -17,8 +11,5 @@
 
        <asp:DropDownList runat="server" ID="MonsterGender_List"></asp:DropDownList>
 
-       <asp:Button runat="server"  ID="MonsterSubmit" OnClick="MonsterSubmit_Click"/>
-    </div>
-    </form>
-</body>
-</html>
+       <asp:Button runat="server"  ID="MonsterSubmit" Text="Submit" OnClick="MonsterSubmit_Click"/>
+</asp:Content>

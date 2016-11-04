@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8501AA62-776E-4425-8B9F-65C23E401418}</ProjectGuid>
+    <ProjectGuid>{EE957896-90BF-4622-AEB5-925C415C69E2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MonsterApp.Tests</RootNamespace>
-    <AssemblyName>MonsterApp.Tests</AssemblyName>
+    <RootNamespace>SchoolRegistrationApp</RootNamespace>
+    <AssemblyName>SchoolRegistrationApp</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -41,20 +41,17 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\packages\xunit.abstractions.2.0.0\lib\net35\xunit.abstractions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="xunit.assert, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
       <HintPath>..\packages\xunit.assert.2.1.0\lib\dotnet\xunit.assert.dll</HintPath>
       <Private>True</Private>
@@ -69,23 +66,82 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdoDataInsertTests.cs" />
-    <Compile Include="AdoDataMSTests.cs" />
-    <Compile Include="AdoDataTests.cs" />
-    <Compile Include="EfDataTests.cs" />
+    <Compile Include="Cours.cs">
+      <DependentUpon>RegistrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFData.cs" />
+    <Compile Include="EFDataFunctions.cs" />
+    <Compile Include="EFDataTests.cs" />
+    <Compile Include="GetActiveInactiveCourses_Result.cs">
+      <DependentUpon>RegistrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetAllActiveInactiveProfessors_Result.cs">
+      <DependentUpon>RegistrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetAllActiveInactiveStudents_Result.cs">
+      <DependentUpon>RegistrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Professor.cs">
+      <DependentUpon>RegistrationModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistrationModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegistrationModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrationModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegistrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrationModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegistrationModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule.cs">
+      <DependentUpon>RegistrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>RegistrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>RegistrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Student.cs">
+      <DependentUpon>RegistrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>RegistrationModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <None Include="packages.config" />
+    <EntityDeploy Include="RegistrationModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RegistrationModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="RegistrationModel.edmx.diagram">
+      <DependentUpon>RegistrationModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MonsterApp.DataAccess\MonsterApp.DataAccess.csproj">
-      <Project>{28E46C6A-6F07-486C-A12F-ACC3DCC60D92}</Project>
-      <Name>MonsterApp.DataAccess</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RegistrationModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RegistrationModel.edmx</DependentUpon>
+      <LastGenOutput>RegistrationModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="RegistrationModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RegistrationModel.edmx</DependentUpon>
+      <LastGenOutput>RegistrationModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

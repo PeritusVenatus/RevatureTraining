@@ -51,5 +51,11 @@ namespace MonsterApp.DataAccess
       var inactives = db.Genders.Select(a => !a.Active);
       var ma = db.Genders.Where(m => m.GenderName.ToLower().Contains("ma"));
     }
+
+      public bool InsertMonster(Monster monster)
+      {
+         db.Monsters.Add(monster);
+         return db.SaveChanges() == 1;
+      }
   }
 }
