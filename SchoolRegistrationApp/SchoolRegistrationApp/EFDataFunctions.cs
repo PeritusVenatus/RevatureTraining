@@ -9,7 +9,7 @@ namespace SchoolRegistrationApp
    public partial class EFData
    {
       #region CalledProcedures
-      public void Run_AddStudent(string Name, string LName, int Gen, string Field)
+      public void Run_AddStudent(string Name, string LName, int? Gen, string Field)
       {
          using (var Reg = new RegistrationDBEntities())
          {

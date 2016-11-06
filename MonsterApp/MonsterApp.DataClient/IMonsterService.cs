@@ -9,9 +9,6 @@ using System.Text;
 
 namespace MonsterApp.DataClient
 {
-  /// <summary>
-  /// 
-  /// </summary>
   [ServiceContract]
   public interface IMonsterService
   {

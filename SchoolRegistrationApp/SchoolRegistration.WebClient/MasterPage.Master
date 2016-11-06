@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="SchoolRegistration.WebClient.MasterPage" %>
+
+<%@ Register Src="~/PageSelection.ascx" TagPrefix="uc" TagName="Selection" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+   <uc:Selection runat="server" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+       <asp:Label runat="server" Font-Bold="true" Font-Size="X-Large">School Registraton</asp:Label>
+    <div>
+        <asp:ContentPlaceHolder ID="Body" runat="server">
+        
+        </asp:ContentPlaceHolder>
+       <asp:Label runat="server" Font-Size="Large">copyright &copy; 2016 - present</asp:Label>
+    </div>
+    </form>
+</body>
+</html>
