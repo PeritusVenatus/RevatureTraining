@@ -12,7 +12,7 @@ namespace SchoolRegistration.Logic.Factories
       public T Create()
       {
          var o = new T();
-         return Create();
+         return o.Create<T>();
       }
    }
 }

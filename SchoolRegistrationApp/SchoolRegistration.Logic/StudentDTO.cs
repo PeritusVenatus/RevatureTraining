@@ -18,7 +18,7 @@ namespace SchoolRegistration.Logic
             return _Name;
          }
 
-         protected set
+         set
          {
             IsNull(ref _Name, value);
          }
@@ -31,7 +31,7 @@ namespace SchoolRegistration.Logic
             return _Name;
          }
 
-         protected set
+         set
          {
             IsNull(ref _Name, value);
          }
@@ -44,7 +44,7 @@ namespace SchoolRegistration.Logic
             return _Name;
          }
 
-         protected set
+         set
          {
             IsNull(ref _Name, value);
          }

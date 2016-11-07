@@ -23,7 +23,11 @@ namespace SchoolRegistration.Logic
 
          foreach (var item in RT.GetStudents())
          {
-            var s = studentFactory.Create();
+           var s = studentFactory.Create();
+
+            s.FirstName = item.FirstName;
+
+            students.Add(s);
          }
 
          return students;
@@ -36,6 +40,10 @@ namespace SchoolRegistration.Logic
          foreach (var item in RT.GetProfessors())
          {
             var p = professorFactory.Create();
+
+            p.FirstName = item.FirstName;
+
+            professors.Add(p);
          }
 
          return professors;
@@ -47,7 +55,11 @@ namespace SchoolRegistration.Logic
 
          foreach (var item in RT.GetCourses())
          {
-            //var c = courseFactory.Create();
+            var c = courseFactory.Create();
+
+            c.CourseName = item.CourseName;
+
+            courses.Add(c);
          }
 
          return courses;

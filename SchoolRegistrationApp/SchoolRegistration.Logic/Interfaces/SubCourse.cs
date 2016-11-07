@@ -8,7 +8,7 @@ namespace SchoolRegistration.Logic.Interfaces
 {
    public abstract class SubCourse : ICourse
    {
-      public virtual string CourseName { get; protected set; }
+      public virtual string CourseName { get; set; }
 
      // public virtual int CreditHours { get; protected set; }
 

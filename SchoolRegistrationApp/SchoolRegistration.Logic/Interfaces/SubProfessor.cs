@@ -8,11 +8,11 @@ namespace SchoolRegistration.Logic.Interfaces
 {
    public abstract class SubProfessor : IProfessor
    {
-      public virtual string FirstName { get; protected set; }
+      public virtual string FirstName { get; set; }
 
-      public virtual string LastName { get; protected set; }
+      public virtual string LastName { get; set; }
 
-      public virtual string Department { get; protected set; }
+      public virtual string Department { get; set; }
 
       internal SubProfessor()
       {
