@@ -10,8 +10,6 @@ using System.Text;
 
 namespace SchoolRegistration.DataClient
 {
-   // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Registration" in code, svc and config file together.
-   // NOTE: In order to launch WCF Test Client for testing this service, please select Registration.svc or Registration.svc.cs at the Solution Explorer and start debugging.
    public class Registration : IRegistration
    {
       private EFData ef = new EFData();

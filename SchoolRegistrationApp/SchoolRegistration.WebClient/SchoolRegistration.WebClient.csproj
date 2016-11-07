@@ -16,7 +16,7 @@
     <RootNamespace>SchoolRegistration.WebClient</RootNamespace>
     <AssemblyName>SchoolRegistration.WebClient</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -48,6 +48,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -66,8 +68,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="HomePage.aspx" />
     <Content Include="packages.config" />
     <Content Include="MasterPage.Master" />
+    <Content Include="Properties\DataSources\SchoolRegistration.DataClient.DAOs.CourseDAO.datasource" />
+    <Content Include="Properties\DataSources\SchoolRegistration.DataClient.DAOs.ProfessorDAO.datasource" />
+    <Content Include="Properties\DataSources\SchoolRegistration.DataClient.DAOs.ScheduleDAO.datasource" />
+    <Content Include="Properties\DataSources\SchoolRegistration.DataClient.DAOs.StudentDAO.datasource" />
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
+    <None Include="Properties\PublishProfiles\LocalHost.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -78,7 +87,6 @@
   <ItemGroup>
     <Content Include="AdminView.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="HomePage.aspx" />
     <Content Include="PageSelection.ascx" />
     <Content Include="ProfessorView.aspx" />
     <Content Include="StudentView.aspx" />
@@ -136,6 +144,20 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SchoolRegistration.DataClient\SchoolRegistration.DataClient.csproj">
+      <Project>{d3f1d22e-5896-419f-bee4-9b8b4a0dddc0}</Project>
+      <Name>SchoolRegistration.DataClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SchoolRegistration.Logic\SchoolRegistration.Logic.csproj">
+      <Project>{15cc4c87-81c4-48ee-ad1a-5fd6e58ecff1}</Project>
+      <Name>SchoolRegistration.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SchoolRegistrationApp\SchoolRegistrationApp.csproj">
+      <Project>{ee957896-90bf-4622-aeb5-925c415c69e2}</Project>
+      <Name>SchoolRegistrationApp</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -151,7 +173,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>59452</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:59452/</IISUrl>
+          <IISUrl>http://localhost/SchoolRegistration.WebClient</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

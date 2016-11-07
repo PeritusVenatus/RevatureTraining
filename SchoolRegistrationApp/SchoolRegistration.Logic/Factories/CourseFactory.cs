@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SchoolRegistration.Logic.Factories
 {
-   public class StudentFactory<T> where T : SubStudent, new()
+   public class CourseFactory<T> where T : SubCourse, new()
    {
       public T Create()
       {

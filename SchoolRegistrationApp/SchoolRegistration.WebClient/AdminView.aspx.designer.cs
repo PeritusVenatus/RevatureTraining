@@ -13,30 +13,39 @@ namespace SchoolRegistration.WebClient {
     public partial class AdminView {
         
         /// <summary>
-        /// StudentList control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox StudentList;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// ProfessorList control.
+        /// Student_List control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ProfessorList;
+        protected global::System.Web.UI.WebControls.DropDownList Student_List;
         
         /// <summary>
-        /// CourseList control.
+        /// Professor_List control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox CourseList;
+        protected global::System.Web.UI.WebControls.DropDownList Professor_List;
+        
+        /// <summary>
+        /// Course_List control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Course_List;
     }
 }

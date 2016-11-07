@@ -10,6 +10,8 @@ namespace SchoolRegistrationApp
 {
    public class EFDataTests
    {
+      private RegistrationDBEntities db = new RegistrationDBEntities();
+
       #region TestProcedures
 
       [Fact]

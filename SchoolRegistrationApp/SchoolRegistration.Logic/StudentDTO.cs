@@ -7,13 +7,11 @@ using System.Threading.Tasks;
 
 namespace SchoolRegistration.Logic
 {
-   public partial class StudentDTO : SubStudent
+   public class StudentDTO : SubStudent
    {
       private string _Name = default(string);
 
-      partial void IsNull(ref string data, string value);
-
-      public override string Name
+      public override string FirstName
       {
          get
          {
@@ -26,7 +24,33 @@ namespace SchoolRegistration.Logic
          }
       }
 
-      internal StudentDTO() : base()
+      public override string LastName
+      {
+         get
+         {
+            return _Name;
+         }
+
+         protected set
+         {
+            IsNull(ref _Name, value);
+         }
+      }
+
+      public override string Major
+      {
+         get
+         {
+            return _Name;
+         }
+
+         protected set
+         {
+            IsNull(ref _Name, value);
+         }
+      }
+
+      public StudentDTO() : base()
       {
 
       }
@@ -34,6 +58,16 @@ namespace SchoolRegistration.Logic
       internal override StudentDTO Create<StudentDTO>()
       {
          return new StudentDTO();
+      }
+
+      private void IsNull(ref string data, string value)
+      {
+         if (string.IsNullOrWhiteSpace(value))
+         {
+            return;
+         }
+
+         data = value;
       }
    }
 }

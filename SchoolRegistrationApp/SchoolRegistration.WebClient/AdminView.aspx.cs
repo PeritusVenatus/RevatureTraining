@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SchoolRegistration.DataClient;
+using SchoolRegistration.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,43 +11,41 @@ namespace SchoolRegistration.WebClient
 {
    public partial class AdminView : System.Web.UI.Page
    {
+      private DataService DS = new DataService();
       protected void Page_Load(object sender, EventArgs e)
       {
-         GetStudents();
-         GetProfessors();
-         GetCourses();
+        GetStudents();
+        GetProfessors();
+        GetCourses();
       }
 
       private void GetStudents()
       {
-         var data = new DataService();
-         StudentList.Items.Clear();
+         Student_List.Items.Clear();
 
-         foreach (var item in data)
+         foreach (var item in DS.GetStudents())
          {
-            StudentList.Items.Add(item.name);
+            Student_List.Items.Add(item.FirstName);
          }
       }
 
       private void GetProfessors()
       {
-         var data = new DataService();
-         ProfessorList.Items.Clear();
+         Professor_List.Items.Clear();
 
-         foreach (var item in data)
+         foreach (var item in DS.GetProfessors())
          {
-            ProfessorList.Items.Add(item.name);
+            Professor_List.Items.Add(item.FirstName);
          }
       }
 
       private void GetCourses()
       {
-         var data = new DataService();
-         CourseList.Items.Clear();
+         Course_List.Items.Clear();
 
-         foreach (var item in data)
+         foreach (var item in DS.GetCourses())
          {
-            CourseList.Items.Add(item.name);
+            Course_List.Items.Add(item.CourseName);
          }
       }
    }

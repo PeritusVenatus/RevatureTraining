@@ -32,18 +32,31 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="xunit.core, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SchoolRegistration.WebClient\Bin\xunit.core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CourseDTO.cs" />
     <Compile Include="DataService.cs" />
+    <Compile Include="Factories\CourseFactory.cs" />
+    <Compile Include="Factories\ProfessorFactory.cs" />
+    <Compile Include="Factories\ScheduleFactory.cs" />
     <Compile Include="Factories\StudentFactory.cs" />
+    <Compile Include="Interfaces\ICourse.cs" />
+    <Compile Include="Interfaces\IProfessor.cs" />
     <Compile Include="Interfaces\IStudent.cs" />
+    <Compile Include="Interfaces\SubCourse.cs" />
+    <Compile Include="Interfaces\SubProfessor.cs" />
     <Compile Include="Interfaces\SubStudent.cs" />
     <Compile Include="ProfessorDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -56,6 +69,17 @@
       <Project>{D3F1D22E-5896-419F-BEE4-9B8B4A0DDDC0}</Project>
       <Name>SchoolRegistration.DataClient</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SchoolRegistrationApp\SchoolRegistrationApp.csproj">
+      <Project>{EE957896-90BF-4622-AEB5-925C415C69E2}</Project>
+      <Name>SchoolRegistrationApp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\DataSources\SchoolRegistration.DataClient.DAOs.CourseDAO.datasource" />
+    <None Include="Properties\DataSources\SchoolRegistration.DataClient.DAOs.ProfessorDAO.datasource" />
+    <None Include="Properties\DataSources\SchoolRegistration.DataClient.DAOs.ScheduleDAO.datasource" />
+    <None Include="Properties\DataSources\SchoolRegistration.DataClient.DAOs.StudentDAO.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

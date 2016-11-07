@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace SchoolRegistration.Logic.Interfaces
 {
-   public interface IStudent
+   public interface IProfessor
    {
       string FirstName { get; }
 
       string LastName { get; }
 
-      string Major { get; }
+      string Department { get; }
    }
 }

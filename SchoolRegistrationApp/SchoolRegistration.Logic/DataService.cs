@@ -1,4 +1,6 @@
-﻿using SchoolRegistration.DataClient.DAOs;
+﻿using SchoolRegistration.DataClient;
+using SchoolRegistration.DataClient.DAOs;
+using SchoolRegistration.Logic.Factories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +11,17 @@ namespace SchoolRegistration.Logic
 {
    public class DataService
    {
+      private Registration RT = new Registration();
+      private StudentFactory<StudentDTO> studentFactory = new StudentFactory<StudentDTO>();
+      private ProfessorFactory<ProfessorDTO> professorFactory = new ProfessorFactory<ProfessorDTO>();
+      private CourseFactory<CourseDTO> courseFactory = new CourseFactory<CourseDTO>();
+     //private ScheduleFactory<ScheduleDTO> scheduleFactory = new ScheduleFactory<ScheduleDTO>();
+
       public List<StudentDTO> GetStudents()
       {
          var students = new List<StudentDTO>();
 
-         foreach (var item in GetStudents())
+         foreach (var item in RT.GetStudents())
          {
             var s = studentFactory.Create();
          }
@@ -25,9 +33,9 @@ namespace SchoolRegistration.Logic
       {
          var professors = new List<ProfessorDTO>();
 
-         foreach (var item in GetProfessors())
+         foreach (var item in RT.GetProfessors())
          {
-            var p = ProfessorFactory.Create();
+            var p = professorFactory.Create();
          }
 
          return professors;
@@ -37,22 +45,22 @@ namespace SchoolRegistration.Logic
       {
          var courses = new List<CourseDTO>();
 
-         foreach (var item in GetCourses())
+         foreach (var item in RT.GetCourses())
          {
-            var c = CourseFactory.Create();
+            //var c = courseFactory.Create();
          }
 
          return courses;
       }
 
-      public bool InsertStudent(StudentDTO)
-      {
-         var s = GetStudents().FirstOrDefault(s => s.Id == student.StudentId);
+      //public bool InsertStudent(StudentDTO)
+      //{
+      //   var s = GetStudents().FirstOrDefault(s => s.Id == student.StudentId);
 
-         var stu = new StudentDAO() { FirstName = student.Name, LastName = student.LName, Gender = student.Gender, Major = student.Major, Active = student.Active };
+      //   var stu = new StudentDAO() { FirstName = student.Name, Las tName= student.LName, Gender = student.Gender, Major = student.Major, Active = student.Active };
 
-         return InsertStudent(stu);
-      }
+      //   return InsertStudent(stu);
+      //} 
 
    }
 }

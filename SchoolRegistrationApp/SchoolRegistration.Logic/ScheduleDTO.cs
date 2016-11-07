@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace SchoolRegistration.Logic
 {
-   class ScheduleDTO
+   public class ScheduleDTO
    {
+      //internal override StudentDTO Create<StudentDTO>()
+      //{
+      //   return new StudentDTO();
+      //}
    }
 }
